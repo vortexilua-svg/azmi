@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azmi Hail - Portofolio | Siswa TKJ SMK 3 Perguruan Cikini</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        darkBg: '#030712',
+                        cardBg: '#0f172a',
+                        cyanNeon: '#06b6d4',
+                        blueNeon: '#3b82f6',
+                    },
+                    boxShadow: {
+                        'neon': '0 0 20px rgba(6, 182, 212, 0.4)',
+                        'neon-lg': '0 0 35px rgba(6, 182, 212, 0.6)',
+                        'glass': '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom styles for glowing borders & glassmorphism */
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(6, 182, 212, 0.2);
+        }
+        .glass-panel:hover {
+            border-color: rgba(6, 182, 212, 0.6);
+            box-shadow: 0 0 25px rgba(6, 182, 212, 0.25);
+        }
+        .neon-glow {
+            text-shadow: 0 0 10px rgba(6, 182, 212, 0.5), 0 0 20px rgba(6, 182, 212, 0.3);
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #030712;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #0e7490;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #06b6d4;
+        }
+    </style>
+</head>
+<body class="bg-darkBg text-slate-100 font-sans antialiased selection:bg-cyan-500 selection:text-slate-950">
+
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass-panel border-b border-cyan-900/40 bg-darkBg/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo / Name -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center shadow-neon font-bold text-lg text-slate-950">
+                        AH
+                    </div>
+                    <span class="text-xl font-bold tracking-wider text-white">Azmi<span class="text-cyan-400">Hail</span></span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-slate-300 hover:text-cyan-400 transition-colors font-medium">Home</a>
+                    <a href="#about" class="text-slate-300 hover:text-cyan-400 transition-colors font-medium">About Me</a>
+                    <a href="#education" class="text-slate-300 hover:text-cyan-400 transition-colors font-medium">Education</a>
+                    <a href="#skills" class="text-slate-300 hover:text-cyan-400 transition-colors font-medium">Skills</a>
+                    <a href="#contact" class="text-slate-300 hover:text-cyan-400 transition-colors font-medium">Contact</a>
+                    <a href="#contact" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 font-semibold shadow-neon hover:shadow-neon-lg transition-all duration-300 transform hover:-translate-y-0.5">
+                        Hubungi Saya
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="menu-btn" class="text-slate-300 hover:text-cyan-400 focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden px-4 pt-2 pb-6 space-y-3 glass-panel border-t border-cyan-900/30">
+            <a href="#home" class="block py-2 text-slate-300 hover:text-cyan-400 font-medium mobile-link">Home</a>
+            <a href="#about" class="block py-2 text-slate-300 hover:text-cyan-400 font-medium mobile-link">About Me</a>
+            <a href="#education" class="block py-2 text-slate-300 hover:text-cyan-400 font-medium mobile-link">Education</a>
+            <a href="#skills" class="block py-2 text-slate-300 hover:text-cyan-400 font-medium mobile-link">Skills</a>
+            <a href="#contact" class="block py-2 text-slate-300 hover:text-cyan-400 font-medium mobile-link">Contact</a>
+            <a href="#contact" class="block text-center mt-3 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 font-semibold shadow-neon mobile-link">
+                Hubungi Saya
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden">
+        <!-- Background Glow Effects -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-10 right-10 w-80 h-80 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Hero Content -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel border border-cyan-500/30 text-cyan-400 text-sm font-medium">
+                        <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse"></span>
+                        Siswa Teknik Komputer & Jaringan
+                    </div>
+                    
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                        Halo, Saya <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 neon-glow">Azmi Hail</span>
+                    </h1>
+
+                    <p class="text-lg sm:text-xl text-slate-300 font-medium max-w-2xl mx-auto lg:mx-0">
+                        Siswa aktif di <span class="text-cyan-400">SMK 3 Perguruan Cikini</span> jurusan Teknik Komputer dan Jaringan (TKJ). Bersemangat mendalami dunia jaringan komputer, konfigurasi router, dan dasar pemrograman.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#contact" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 font-bold shadow-neon hover:shadow-neon-lg transition-all duration-300 text-center flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-paper-plane"></i> Hubungi Saya
+                        </a>
+                        <a href="#skills" class="w-full sm:w-auto px-8 py-4 rounded-xl glass-panel text-cyan-400 font-semibold hover:bg-cyan-500/10 transition-all duration-300 text-center flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-code"></i> Lihat Keahlian
+                        </a>
+                    </div>
+
+                    <!-- Quick Social / Status Badges -->
+                    <div class="pt-6 flex items-center justify-center lg:justify-start gap-6 text-slate-400 text-sm">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-location-dot text-cyan-400"></i> Jakarta, Indonesia
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-school text-cyan-400"></i> SMK 3 Perguruan Cikini
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Profile Photo with Neon Frame -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative group">
+                        <!-- Neon Glow Backdrops -->
+                        <div class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-cyan-500 to-blue-600 opacity-75 blur-lg group-hover:opacity-100 transition duration-500 group-hover:duration-200 animate-pulse"></div>
+                        
+                        <!-- Frame Container -->
+                        <div class="relative w-72 h-72 sm:w-80 sm:h-80 rounded-3xl p-2 glass-panel overflow-hidden border-2 border-cyan-400/60 shadow-neon">
+                            <img src="azmi.jpeg" alt="Azmi Hail" class="w-full h-full object-cover rounded-2xl transform transition-transform duration-500 group-hover:scale-105" onerror="this.src='https://placehold.co/400x400/0f172a/06b6d4?text=Azmi+Hail'">
+                        </div>
+
+                        <!-- Floating Badge on Photo -->
+                        <div class="absolute -bottom-4 -right-4 glass-panel px-4 py-3 rounded-2xl shadow-neon flex items-center gap-3 border border-cyan-400/40 bg-darkBg/90">
+                            <div class="w-10 h-10 rounded-xl bg-cyan-500/20 flex items-center justify-center text-cyan-400 text-lg">
+                                <i class="fa-solid fa-network-wired"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-slate-400 font-medium">Bidang Keahlian</div>
+                                <div class="text-sm font-bold text-white">Teknik Komputer & Jaringan</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-panel text-cyan-400 text-sm font-semibold">
+                    <i class="fa-solid fa-user-astronaut"></i> Kenalan Lebih Dekat
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Tentang <span class="text-cyan-400">Saya</span></h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-cyan-500 to-blue-600 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <div class="glass-panel p-8 sm:p-12 rounded-3xl relative overflow-hidden shadow-glass border border-cyan-500/30">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-cyan-500/5 rounded-bl-full pointer-events-none"></div>
+                    
+                    <div class="flex flex-col md:flex-row gap-8 items-center">
+                        <div class="w-24 h-24 sm:w-32 sm:h-32 rounded-2xl bg-gradient-to-tr from-cyan-500/20 to-blue-600/20 flex items-center justify-center border border-cyan-500/40 shrink-0 text-cyan-400 text-4xl shadow-neon">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+                        <div class="space-y-4 text-slate-300 leading-relaxed text-base sm:text-lg">
+                            <p class="font-normal">
+                                "Saya adalah siswa Teknik Komputer dan Jaringan (TKJ) di <strong class="text-white font-semibold">SMK 3 Perguruan Cikini</strong>. Saya menguasai dasar-dasar ilmu TKJ, seperti melakukan crimping kabel jaringan, memahami dasar-dasar coding atau pemrograman, serta melakukan setting dan konfigurasi perangkat TP-Link."
+                            </p>
+                            <p class="font-normal">
+                                "Selain itu, saya juga mempelajari berbagai ilmu dasar lainnya yang berkaitan dengan komputer dan jaringan. Saya terus berusaha untuk menambah pengetahuan dan meningkatkan kemampuan saya di bidang TKJ agar dapat memahami lebih banyak materi serta menerapkannya dalam praktik secara langsung."
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Highlights Info Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8 pt-8 border-t border-slate-800">
+                        <div class="p-4 rounded-2xl bg-darkBg/50 border border-slate-800/80 text-center">
+                            <div class="text-cyan-400 text-xl font-bold mb-1"><i class="fa-solid fa-graduation-cap"></i></div>
+                            <div class="text-sm font-semibold text-white">Status</div>
+                            <div class="text-xs text-slate-400 mt-0.5">Siswa Aktif TKJ</div>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-darkBg/50 border border-slate-800/80 text-center">
+                            <div class="text-cyan-400 text-xl font-bold mb-1"><i class="fa-solid fa-wifi"></i></div>
+                            <div class="text-sm font-semibold text-white">Fokus Utama</div>
+                            <div class="text-xs text-slate-400 mt-0.5">Jaringan & Konfigurasi</div>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-darkBg/50 border border-slate-800/80 text-center">
+                            <div class="text-cyan-400 text-xl font-bold mb-1"><i class="fa-solid fa-terminal"></i></div>
+                            <div class="text-sm font-semibold text-white">Pengembangan</div>
+                            <div class="text-xs text-slate-400 mt-0.5">Coding & Praktik Lapangan</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-24 relative bg-darkBg/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-panel text-cyan-400 text-sm font-semibold">
+                    <i class="fa-solid fa-graduation-cap"></i> Riwayat Pendidikan
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Pendidikan <span class="text-cyan-400">Saat Ini</span></h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-cyan-500 to-blue-600 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="max-w-3xl mx-auto">
+                <!-- Education Card -->
+                <div class="glass-panel p-8 sm:p-10 rounded-3xl relative overflow-hidden shadow-glass border border-cyan-500/40 group hover:border-cyan-400 transition-all duration-300">
+                    <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-cyan-500/10 rounded-full blur-2xl group-hover:bg-cyan-500/20 transition-all duration-500"></div>
+
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+                        <div class="w-20 h-20 rounded-2xl bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center text-slate-950 text-3xl font-bold shadow-neon shrink-0">
+                            <i class="fa-solid fa-school"></i>
+                        </div>
+                        <div class="space-y-2 flex-1">
+                            <div class="flex flex-wrap items-center justify-between gap-2">
+                                <span class="px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-400 font-semibold text-xs border border-cyan-500/30">
+                                    Sekolah Menengah Kejuruan
+                                </span>
+                                <span class="text-slate-400 text-sm font-medium"><i class="fa-regular fa-calendar-days text-cyan-400"></i> Saat Ini (Aktif)</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white">SMK 3 Perguruan Cikini</h3>
+                            <p class="text-cyan-400 font-medium text-lg flex items-center gap-2">
+                                <i class="fa-solid fa-network-wired text-sm"></i> Teknik Komputer dan Jaringan (TKJ)
+                            </p>
+                            <p class="text-slate-300 text-sm pt-2">
+                                Menempuh pendidikan kejuruan yang berfokus pada penguasaan perangkat keras komputer, instalasi jaringan lokal maupun luas, konfigurasi perangkat jaringan seperti router TP-Link, serta dasar-dasar pemrograman sistem.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-panel text-cyan-400 text-sm font-semibold">
+                    <i class="fa-solid fa-screwdriver-wrench"></i> Kompetensi & Keahlian
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Keahlian <span class="text-cyan-400">Teknis (TKJ)</span></h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-cyan-500 to-blue-600 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                
+                <!-- Skill Card 1 -->
+                <div class="glass-panel p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2 group cursor-pointer border border-cyan-500/20 hover:border-cyan-400 hover:shadow-neon">
+                    <div class="flex items-start gap-5">
+                        <div class="w-16 h-16 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-2xl group-hover:bg-cyan-500 group-hover:text-slate-950 transition-all duration-300 shadow-neon">
+                            <i class="fa-solid fa-network-wired"></i>
+                        </div>
+                        <div class="space-y-2 flex-1">
+                            <h3 class="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">Crimping Kabel UTP / Jaringan</h3>
+                            <p class="text-slate-300 text-sm leading-relaxed">
+                                Mahir melakukan pemotongan, penyusunan kabel UTP dengan standar T568A/T568B, crimping konektor RJ-45, serta pengujian kabel menggunakan LAN tester untuk memastikan koneksi jaringan fisik berjalan sempurna.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill Card 2 -->
+                <div class="glass-panel p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2 group cursor-pointer border border-cyan-500/20 hover:border-cyan-400 hover:shadow-neon">
+                    <div class="flex items-start gap-5">
+                        <div class="w-16 h-16 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-2xl group-hover:bg-cyan-500 group-hover:text-slate-950 transition-all duration-300 shadow-neon">
+                            <i class="fa-solid fa-code"></i>
+                        </div>
+                        <div class="space-y-2 flex-1">
+                            <h3 class="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">Dasar-Dasar Pemrograman / Coding</h3>
+                            <p class="text-slate-300 text-sm leading-relaxed">
+                                Memahami dasar-dasar logika pemrograman, sintaks dasar bahasa pemrograman web (HTML, CSS, JavaScript) serta logika dasar script untuk pengembangan aplikasi dan automasi tugas jaringan.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill Card 3 -->
+                <div class="glass-panel p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2 group cursor-pointer border border-cyan-500/20 hover:border-cyan-400 hover:shadow-neon">
+                    <div class="flex items-start gap-5">
+                        <div class="w-16 h-16 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-2xl group-hover:bg-cyan-500 group-hover:text-slate-950 transition-all duration-300 shadow-neon">
+                            <i class="fa-solid fa-router"></i>
+                        </div>
+                        <div class="space-y-2 flex-1">
+                            <h3 class="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">Konfigurasi Router & TP-Link</h3>
+                            <p class="text-slate-300 text-sm leading-relaxed">
+                                Berpengalaman melakukan setting, konfigurasi, dan manajemen perangkat TP-Link (Router, Access Point, Extender) untuk pengaturan jaringan Wi-Fi, DHCP server, keamanan jaringan, dan troubleshooting koneksi internet.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill Card 4 -->
+                <div class="glass-panel p-8 rounded-3xl transition-all duration-300 hover:-translate-y-2 group cursor-pointer border border-cyan-500/20 hover:border-cyan-400 hover:shadow-neon">
+                    <div class="flex items-start gap-5">
+                        <div class="w-16 h-16 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-2xl group-hover:bg-cyan-500 group-hover:text-slate-950 transition-all duration-300 shadow-neon">
+                            <i class="fa-solid fa-server"></i>
+                        </div>
+                        <div class="space-y-2 flex-1">
+                            <h3 class="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">Dasar Sistem Komputer & Jaringan</h3>
+                            <p class="text-slate-300 text-sm leading-relaxed">
+                                Memahami arsitektur perangkat keras komputer (hardware), instalasi sistem operasi, pemecahan masalah perangkat (troubleshooting), serta pemahaman topologi jaringan dasar (LAN, WAN, MAN).
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 relative bg-darkBg/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-panel text-cyan-400 text-sm font-semibold">
+                    <i class="fa-solid fa-envelope"></i> Hubungi Saya
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Mari <span class="text-cyan-400">Terhubung</span></h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-cyan-500 to-blue-600 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 max-w-5xl mx-auto">
+                <!-- Contact Information -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="glass-panel p-8 rounded-3xl space-y-6 border border-cyan-500/30">
+                        <h3 class="text-2xl font-bold text-white">Informasi Kontak</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Tertarik untuk berdiskusi seputar dunia TKJ, jaringan komputer, atau proyek kolaborasi? Silakan hubungi saya melalui jalur berikut.
+                        </p>
+
+                        <div class="space-y-4 pt-2">
+                            <div class="flex items-center gap-4 text-slate-300">
+                                <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 shrink-0">
+                                    <i class="fa-solid fa-school text-lg"></i>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-slate-400 font-medium">Institusi</div>
+                                    <div class="text-sm font-semibold text-white">SMK 3 Perguruan Cikini</div>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center gap-4 text-slate-300">
+                                <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 shrink-0">
+                                    <i class="fa-solid fa-envelope text-lg"></i>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-slate-400 font-medium">Email</div>
+                                    <div class="text-sm font-semibold text-white">azmi.hail@student.sch.id</div>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center gap-4 text-slate-300">
+                                <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 shrink-0">
+                                    <i class="fa-solid fa-location-dot text-lg"></i>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-slate-400 font-medium">Lokasi</div>
+                                    <div class="text-sm font-semibold text-white">Jakarta, Indonesia</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="lg:col-span-7">
+                    <form id="contact-form" class="glass-panel p-8 sm:p-10 rounded-3xl space-y-6 border border-cyan-500/30 shadow-glass">
+                        <h3 class="text-2xl font-bold text-white">Kirim Pesan</h3>
+                        
+                        <div class="space-y-4">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-slate-300 mb-2">Nama Lengkap</label>
+                                <input type="text" id="name" required class="w-full px-4 py-3 rounded-xl bg-darkBg border border-slate-700 text-white focus:outline-none focus:border-cyan-400 transition-colors" placeholder="Masukkan nama Anda...">
+                            </div>
+
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-slate-300 mb-2">Email</label>
+                                <input type="email" id="email" required class="w-full px-4 py-3 rounded-xl bg-darkBg border border-slate-700 text-white focus:outline-none focus:border-cyan-400 transition-colors" placeholder="nama@domain.com">
+                            </div>
+
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-slate-300 mb-2">Pesan</label>
+                                <textarea id="message" rows="4" required class="w-full px-4 py-3 rounded-xl bg-darkBg border border-slate-700 text-white focus:outline-none focus:border-cyan-400 transition-colors resize-none" placeholder="Tuliskan pesan Anda..."></textarea>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 font-bold shadow-neon hover:shadow-neon-lg transition-all duration-300 flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-paper-plane"></i> Kirim Pesan
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-slate-900 bg-darkBg text-center text-slate-500 text-sm">
+        <div class="max-w-7xl mx-auto px-4">
+            <p>&copy; 2026 Azmi Hail. All rights reserved. | Siswa TKJ SMK 3 Perguruan Cikini</p>
+        </div>
+    </footer>
+
+    <!-- Custom Modal for Success Message (No alert() used) -->
+    <div id="success-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm hidden">
+        <div class="glass-panel p-8 rounded-3xl max-w-md w-full text-center space-y-6 border border-cyan-400 shadow-neon-lg transform transition-all">
+            <div class="w-20 h-20 rounded-full bg-cyan-500/20 border border-cyan-400 flex items-center justify-center text-cyan-400 text-3xl mx-auto shadow-neon">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <div class="space-y-2">
+                <h3 class="text-2xl font-bold text-white">Pesan Terkirim!</h3>
+                <p id="modal-text" class="text-slate-300 text-sm">Terima kasih telah menghubungi saya. Pesan Anda telah berhasil dikirim.</p>
+            </div>
+            <button id="close-modal" class="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 font-bold shadow-neon">
+                Tutup
+            </button>
+        </div>
+    </div>
+
+    <!-- JavaScript for Mobile Menu, Smooth Scroll, and Modal -->
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Contact Form Submission Handler (Custom Modal instead of alert())
+        const contactForm = document.getElementById('contact-form');
+        const successModal = document.getElementById('success-modal');
+        const closeModalBtn = document.getElementById('close-modal');
+        const modalText = document.getElementById('modal-text');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            modalText.textContent = `Terima kasih ${name}, pesan Anda telah berhasil dikirim ke Azmi Hail. Saya akan segera meresponsnya!`;
+            successModal.classList.remove('hidden');
+            contactForm.reset();
+        });
+
+        closeModalBtn.addEventListener('click', () => {
+            successModal.classList.add('hidden');
+        });
+
+        // Close modal on outside click
+        successModal.addEventListener('click', (e) => {
+            if (e.target === successModal) {
+                successModal.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
